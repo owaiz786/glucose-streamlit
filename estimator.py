@@ -388,6 +388,16 @@ def initialize_session(self):
     self.start_time = time.time()
     self.base_glucose = 100
     self.trend = 0
+
+def initialize_session(self):
+    """Initialize or reset session-specific parameters."""
+    self.feature_buffer.clear()
+    self.history_buffer.clear()
+    self.glucose_values.clear()
+    self.time_values.clear()
+    self.trend = 0
+    self.start_time = time.time()
+    print("Session initialized: Buffers cleared and timer reset.")
     
 def get_current_data(self):
     """Return current glucose data and visualization info"""
@@ -399,3 +409,4 @@ def get_current_data(self):
             'eye_display': self.eye_display.tolist() if hasattr(self, 'eye_display') else None
         }
     return None
+    
